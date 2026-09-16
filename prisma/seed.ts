@@ -6,7 +6,13 @@ import { PrismaClient } from "../src/generated/prisma/client";
 import { DEFAULT_AGREEMENT_TERMS } from "../src/lib/defaults";
 import { MODULES, STAFF_PERMISSIONS, permissionLabel } from "../src/lib/permissions";
 
-process.loadEnvFile(path.join(process.cwd(), ".env"));
+// .env is gitignored; on a host that injects env vars directly (CI, Vercel), there's
+// nothing to load here, so a missing file is not an error.
+try {
+  process.loadEnvFile(path.join(process.cwd(), ".env"));
+} catch {
+  // ignore
+}
 
 const url = new URL(process.env.DATABASE_URL!);
 const prisma = new PrismaClient({
