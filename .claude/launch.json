@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "anish-car-rent",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000
+    },
+    {
+      "name": "anish-car-rent-localdb",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "set \"DATABASE_URL=mysql://root@localhost:3306/anish_car_rent\" && npm run dev"],
+      "port": 3000
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE `refunds` ADD COLUMN `kind` ENUM('DEPOSIT', 'PAYMENT') NOT NULL DEFAULT 'DEPOSIT';
+
